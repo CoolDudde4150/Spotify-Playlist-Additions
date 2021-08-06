@@ -102,7 +102,7 @@ install: clean ## install the package to the active Python's site-packages
 venv: .venv/bin/activate ## create a python virtual environment with dependencies and packages installed. Only runs if setup.py or requirements_dex.txt changed
 
 .venv/bin/activate: requirements_dev.txt setup.py requirements.txt
-	virtualenv --python=$(shell which python3) .venv
+	$(shell which python3) -m venv .venv
 	. .venv/bin/activate; \
 	pip install -r requirements_dev.txt; \
 	pip install -e .
